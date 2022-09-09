@@ -1,0 +1,6 @@
+C:\Users\rogar\Source\Repos\proyectosoa20173\AccesoDatosDs\bin\Debug\AccesoDatosDs.dll.config
+C:\Users\rogar\Source\Repos\proyectosoa20173\AccesoDatosDs\bin\Debug\AccesoDatosDs.dll
+C:\Users\rogar\Source\Repos\proyectosoa20173\AccesoDatosDs\bin\Debug\AccesoDatosDs.pdb
+C:\Users\rogar\Source\Repos\proyectosoa20173\AccesoDatosDs\obj\Debug\AccesoDatosDs.csprojResolveAssemblyReference.cache
+C:\Users\rogar\Source\Repos\proyectosoa20173\AccesoDatosDs\obj\Debug\AccesoDatosDs.dll
+C:\Users\rogar\Source\Repos\proyectosoa20173\AccesoDatosDs\obj\Debug\AccesoDatosDs.pdb

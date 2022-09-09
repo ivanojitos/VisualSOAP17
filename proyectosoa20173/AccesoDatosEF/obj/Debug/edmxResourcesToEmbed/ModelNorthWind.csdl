@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NorthwindModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="TitleOfCourtesy" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="BirthDate" Type="DateTime" Precision="3" />
+    <Property Name="HireDate" Type="DateTime" Precision="3" />
+    <Property Name="Address" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Region" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="HomePhone" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="Extension" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReportsTo" Type="Int32" />
+    <Property Name="PhotoPath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employees1" Relationship="Self.FK_Employees_Employees" FromRole="Employees" ToRole="Employees1" />
+    <NavigationProperty Name="Employees2" Relationship="Self.FK_Employees_Employees" FromRole="Employees1" ToRole="Employees" />
+  </EntityType>
+  <Association Name="FK_Employees_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+    <End Role="Employees1" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Employees1">
+        <PropertyRef Name="ReportsTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="NorthwindEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Employees" EntityType="Self.Employees" />
+    <AssociationSet Name="FK_Employees_Employees" Association="Self.FK_Employees_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Employees1" EntitySet="Employees" />
+    </AssociationSet>
+    <FunctionImport Name="GetAllEmployees" ReturnType="Collection(NorthwindModel.GetAllEmployees_Result)" />
+    <FunctionImport Name="GetEmployeebyName" ReturnType="Collection(NorthwindModel.GetEmployeebyName_Result)">
+      <Parameter Name="firstname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetEmployeesAsc" ReturnType="Collection(NorthwindModel.GetEmployeesAsc_Result)" />
+    <EntitySet Name="Order_Details" EntityType="NorthwindModel.Order_Details" />
+    <EntitySet Name="CustomerCustomerDemo" EntityType="NorthwindModel.CustomerCustomerDemo" />
+  </EntityContainer>
+  <ComplexType Name="GetAllEmployees_Result">
+    <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="TitleOfCourtesy" Nullable="true" MaxLength="25" />
+    <Property Type="DateTime" Name="BirthDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="HireDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="PostalCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="HomePhone" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Extension" Nullable="true" MaxLength="4" />
+    <Property Type="Binary" Name="Photo" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="Notes" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="ReportsTo" Nullable="true" />
+    <Property Type="String" Name="PhotoPath" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="GetEmployeebyName_Result">
+    <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="TitleOfCourtesy" Nullable="true" MaxLength="25" />
+    <Property Type="DateTime" Name="BirthDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="HireDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="PostalCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="HomePhone" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Extension" Nullable="true" MaxLength="4" />
+    <Property Type="Binary" Name="Photo" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="Notes" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="ReportsTo" Nullable="true" />
+    <Property Type="String" Name="PhotoPath" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="GetEmployeesAsc_Result">
+    <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <EntityType Name="Order_Details">
+    <Key>
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Quantity" Type="Int16" Nullable="false" />
+    <Property Name="Discount" Type="Single" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CustomerCustomerDemo">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+      <PropertyRef Name="CustomerTypeID" />
+    </Key>
+    <Property Name="CustomerID" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="CustomerTypeID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+</Schema>

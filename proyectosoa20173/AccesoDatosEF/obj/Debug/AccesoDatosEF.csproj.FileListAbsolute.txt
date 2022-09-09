@@ -1,0 +1,10 @@
+C:\Users\rogar\Source\Repos\proyectosoa20173\AccesoDatosEF\bin\Debug\AccesoDatosEF.dll.config
+C:\Users\rogar\Source\Repos\proyectosoa20173\AccesoDatosEF\bin\Debug\AccesoDatosEF.dll
+C:\Users\rogar\Source\Repos\proyectosoa20173\AccesoDatosEF\bin\Debug\AccesoDatosEF.pdb
+C:\Users\rogar\Source\Repos\proyectosoa20173\AccesoDatosEF\bin\Debug\EntityFramework.dll
+C:\Users\rogar\Source\Repos\proyectosoa20173\AccesoDatosEF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\rogar\Source\Repos\proyectosoa20173\AccesoDatosEF\bin\Debug\EntityFramework.xml
+C:\Users\rogar\Source\Repos\proyectosoa20173\AccesoDatosEF\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\rogar\Source\Repos\proyectosoa20173\AccesoDatosEF\obj\Debug\AccesoDatosEF.csprojResolveAssemblyReference.cache
+C:\Users\rogar\Source\Repos\proyectosoa20173\AccesoDatosEF\obj\Debug\AccesoDatosEF.dll
+C:\Users\rogar\Source\Repos\proyectosoa20173\AccesoDatosEF\obj\Debug\AccesoDatosEF.pdb
